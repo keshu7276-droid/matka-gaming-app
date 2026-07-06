@@ -13,6 +13,16 @@ app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/users', require('./routes/user.routes'));
 app.use('/api/games', require('./routes/game.routes'));
 
+// Root route - homepage
+app.get('/', (req, res) => {
+  res.json({ 
+    success: true,
+    message: 'Matka Gaming App API is running!',
+    status: 'live',
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Server running!' });
 });
